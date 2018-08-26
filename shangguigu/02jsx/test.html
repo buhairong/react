@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="test1"></div>
+    <div id="test2"></div>
+    <div id="example"></div>
+
+    <script type="text/javascript" src="../prepare/js/react.development.js"></script>
+    <script type="text/javascript" src="../prepare/js/react-dom.development.js"></script>
+    <script type="text/javascript" src="../prepare/js/babel.min.js"></script>
+    <script>
+        const msg = "I Like You";
+        const myId = "Atguigu";
+
+        const vDom1 = React.createElement("h2",{id:myId.toLowerCase()},msg.toUpperCase());
+        ReactDOM.render(vDom1,document.getElementById("test1"));
+    </script>
+    <script type="text/babel">
+        const vDom2 = <h3 id={myId.toUpperCase()}>{msg.toLowerCase()}</h3>;
+        ReactDOM.render(vDom2,document.getElementById("test2"));
+
+        var names = ['jquery', 'zeptoo', 'angular', 'react全家桶', 'vue全家桶'];
+        var lis = [];
+        /*names.forEach(function(name){
+            lis.push(<li>{name}</li>);
+        })*/
+
+        for(let i=0;i<names.length;i++){
+            lis.push(<li>{names[i]}</li>);
+        }
+        //const vDom3 = <ul>{lis}</ul>;
+        const vDom3 = <ul>{names.map(function(name){
+            return <li>{name}</li>;
+        })}</ul>;
+        ReactDOM.render(vDom3,document.getElementById("example"));
+    </script>
+</body>
+</html>
