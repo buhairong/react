@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Super(){
+
+    }
+
+    Super.prototype.a = function(){
+        console.log("a");
+    }
+
+    function Sub(){
+
+    }
+
+    Sub.prototype = new Super();
+
+    Sub.prototype.b = function(){
+        console.log("b");
+    }
+
+    var sub = new Sub();
+    sub.a();
+    sub.b();
+</script>
